@@ -1,7 +1,7 @@
 class Board
   attr_accessor :case, :choice
 
-  def initialize
+  def initialize #setting variables
     bc_1 = BoardCase.new(1, "1")
     bc_2 = BoardCase.new(2, "2")
     bc_3 = BoardCase.new(3, "3")
@@ -14,7 +14,7 @@ class Board
     @cases = [bc_1, bc_2, bc_3, bc_4, bc_5, bc_6, bc_7, bc_8, bc_9]
   end
 
-  def show
+  def show # Showing the board with cells valiables
     puts "\n     |     |     "
     puts "  #{@cases[0].value}  |  #{@cases[1].value}  |  #{@cases[2].value}  "
     puts "_____|_____|_____"
@@ -26,16 +26,16 @@ class Board
     puts "     |     |     "
   end
 
-  def get_player_choice(choice, pmark, player)
+  def get_player_choice(choice, pmark, player) # Making the player pick a cell he wants to play in
     self.set_case_value(choice, pmark, player)
   end
 
-  def set_case_value(choice, pmark, player)
+  def set_case_value(choice, pmark, player) #changing the content of the cell picked by the players
     if is_playable?(@cases[choice - 1])
       if pmark == "O"
-        @cases[choice - 1].value = pmark.red
+        @cases[choice - 1].value = pmark.blue
       else
-        @cases[choice - 1].value = pmark.green
+        @cases[choice - 1].value = pmark.red
       end
     else
       puts "This space is already taken!"
@@ -44,7 +44,7 @@ class Board
     end
   end
 
-  def is_playable?(cell)
+  def is_playable?(cell) # Check is the picked cell is playable
     if cell.value.to_i == cell.name
       return true
     else
@@ -52,7 +52,7 @@ class Board
     end
   end
 
-  def victory(player)
+  def victory(player) # Set the victories conditions
     if @cases[0].value == @cases[1].value && @cases[1].value == @cases[2].value
       return true
     elsif @cases[3].value == @cases[4].value && @cases[4].value == @cases[5].value

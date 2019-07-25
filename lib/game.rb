@@ -1,7 +1,7 @@
 class Game
   @@victory = false #class variable to break the loop when needed.
 
-  def initialize
+  def initialize # Starting the game with good looking emojis
     puts "\n      |      |              |      |              |      |        "
     puts "  🔵  |  ❌  |  ❌      🔵  |  🔵  |  ❌      ❌  |  ❌  |  ❌    "
     puts "______|______|______  ______|______|______  ______|______|______  "
@@ -19,7 +19,7 @@ class Game
     @board_game = Board.new
   end
 
-  def go
+  def go # Game playing method
     system "clear"
     i = 0
     loop do
@@ -45,8 +45,8 @@ class Game
       end
     end
     if @@victory == false
-        @board_game.show
-        puts "It's a draw! Think outside the box next time! 🤔"
+      @board_game.show
+      puts "It's a draw! Think outside the box next time! 🤔"
     end
     puts "\n#{@p_one.pname} : #{@p_one.ppoints} ⚔️ versus⚔️  #{@p_two.pname} : #{@p_two.ppoints}"
     puts "Want to do another game versus that opponent ? (expecting Y or N)"
@@ -58,7 +58,7 @@ class Game
     end
   end
 
-  def turn(player)
+  def turn(player) #setting the order in which players are gonna play the game.
     @choice = 0
     puts "\t#{@p_one.pname} plays as #{@p_one.pmark}, #{@p_two.pname} plays as #{@p_two.pmark}! Play smart! 🤔 🤔"
     @board_game.show
