@@ -32,7 +32,9 @@ Le jeu se déroule au tour par tour, vous placez vos pions jusqu'à remplissage 
 # Help me, i can't see emojis, i'm sad!
 
 **Install these packages.**
+
 `sudo apt-get install fonts-noto-color-emoji`
+
 `sudo apt-get install ttf-ancient-fonts`
 
 Try and change your terminal font to `Fira Code` (working for me.) or play around with different fonts.
