@@ -38,7 +38,8 @@ class Board
         @cases[choice - 1].value = pmark.red
       end
     else
-      puts "This space is already taken!"
+      puts "This cell is already taken!"
+      print "\t> "
       choice = gets.chomp.to_i
       self.set_case_value(choice, pmark, player)
     end
